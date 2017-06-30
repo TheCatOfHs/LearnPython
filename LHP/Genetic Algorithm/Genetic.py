@@ -13,7 +13,7 @@ def findBest(pop):
 def initialize(pop, chromNodes, chromRange):
     for i in pop:
         for j in range(chromNodes):
-            pop[i].chrom.append(random.randrange(chromRange[j][0], chromRange[j][1]))
+            pop[i].chrom.append(random.uniform(chromRange[j][0], chromRange[j][1]+1))
     
     return pop
 

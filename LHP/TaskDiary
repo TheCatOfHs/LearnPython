@@ -1,2 +1,6 @@
 2017-06-30
-    今天教邱华使用GitHub.
+    今天教邱华使用GitHub。今天写了一些内容。主要是完善一下函数。今天主要学到了随机数产生器random的用法。
+    import random
+    random.random() 用来产生一个随机数
+    random.randrange(a, b) 产生在[a, b-1]之间的随机整数
+    random.uniform(a, b) 产生在[a, b-1]之间的浮点数
