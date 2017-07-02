@@ -22,9 +22,30 @@ def calAveFitness(pop, N):
     sumFitness = 0
     for i in pop:
         sumFitness = sumFitness + pop[i].fitness
-    aveFitness = summFitness / N
+    aveFitness = sumFitness / N
     return aveFitness
-    
+
+#进行突变
+def mutChrom(pop, mut, chromNodes, bestChrom, chromRange):
+    for i in pop:
+        #如果随机数小于变异概率（即可以变异)
+        if mut > random.uniform(0,2):
+            mutNode = random.randrange(0,chromNodes)
+            mutRange = random.uniform(0, 2) * (1-pop[i].fitness/bestChrom[1])**2
+            pop[i].chrom[mutNode] = pop[i].chrom[mutNode] * (1+mutRange)
+            #判断变异后的范围是否在要求范围内
+            pop[i].chrom[mutNode] = inRange(pop[i].chrom[mutNode], chromRange[mutNode])
+    return pop
+
+#检验便宜范围是否在要求范围内
+def inRange(mutNode, chromRange):
+    if chromRange[0] < mutNode < chromRange[1]:
+        return mutNode
+    elif mutNode-chromRange[0] > mutNode-chromRange[1]:
+        return chromRange[1]
+        else:
+            return chromRange[0]
+
 
     
 
